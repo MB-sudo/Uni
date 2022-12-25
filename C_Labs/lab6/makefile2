@@ -1,0 +1,15 @@
+
+all: task2
+
+task2: task2.o LineParser.o
+	gcc -m32 -g -Wall task2.o LineParser.o -o  task2
+
+LineParser.o: LineParser.c
+	gcc -g -m32 -Wall -c LineParser.c -o LineParser.o
+
+task2.o: task2.c 
+	gcc -g -m32 -Wall -c task2.c -h LineParser.h -o task2.o
+
+.PHONY: clean
+clean: 
+	rm -f *.o 
